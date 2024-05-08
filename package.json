@@ -1,0 +1,10 @@
+{
+  "name": "nodejs-backend-portfolio",
+  "version": "0.0.0",
+  "description": "Node.js backend portfolio",
+  "author": "oneofthezombies",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}
