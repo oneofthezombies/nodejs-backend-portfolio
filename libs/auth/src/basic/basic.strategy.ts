@@ -1,8 +1,8 @@
 import { BasicStrategy as Strategy } from 'passport-http';
 import { PassportStrategy } from '@nestjs/passport';
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserPayload } from '../auth.types.js';
 import { AuthService } from '../auth.service.js';
+import { ReqUser } from '../auth.types.js';
 
 @Injectable()
 export class BasicStrategy extends PassportStrategy(Strategy) {
@@ -13,14 +13,14 @@ export class BasicStrategy extends PassportStrategy(Strategy) {
     super();
   }
 
-  async validate(email: string, password: string): Promise<UserPayload> {
-    const user = await this.authService.validateEmailPassword({
+  async validate(email: string, password: string): Promise<ReqUser> {
+    const reqUser = await this.authService.validateEmailPassword({
       email,
       password,
     });
-    if (!user) {
+    if (!reqUser) {
       throw new UnauthorizedException();
     }
-    return user;
+    return reqUser;
   }
 }

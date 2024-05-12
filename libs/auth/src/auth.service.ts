@@ -2,8 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { UserService } from './user/user.service.js';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { UserPayload } from './auth.types.js';
-import { JwtPayload } from './jwt/jwt.types.js';
+import { JwtPayload, ReqUser } from './auth.types.js';
 
 @Injectable()
 export class AuthService {
@@ -14,10 +13,24 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
+  async register(data: { email: string; password: string }): Promise<ReqUser> {
+    const { password, ...paramWithoutPassword } = data;
+    const salt = await bcrypt.genSalt();
+    const passwordHash = await bcrypt.hash(password, salt);
+    const user = await this.userService.create({
+      ...paramWithoutPassword,
+      passwordHash,
+    });
+    return {
+      id: user.id,
+      email: user.email,
+    };
+  }
+
   async validateEmailPassword(data: {
     email: string;
     password: string;
-  }): Promise<UserPayload | null> {
+  }): Promise<ReqUser | null> {
     const { password, ...paramWithoutPassword } = data;
     const user = await this.userService.findByEmail(paramWithoutPassword);
     if (!user) {
@@ -33,10 +46,10 @@ export class AuthService {
     };
   }
 
-  async login(user: UserPayload) {
+  async login(reqUser: ReqUser) {
     const payload: JwtPayload = {
-      sub: user.id,
-      username: user.email,
+      sub: reqUser.id,
+      username: reqUser.email,
     };
     const token = await this.jwtService.signAsync(payload);
     return {
