@@ -47,13 +47,24 @@ export class AuthService {
   }
 
   async login(reqUser: ReqUser) {
-    const payload: JwtPayload = {
-      sub: reqUser.id,
-      username: reqUser.email,
-    };
+    const payload = this.reqUserToJwtPayload(reqUser);
     const token = await this.jwtService.signAsync(payload);
     return {
       token,
+    };
+  }
+
+  reqUserToJwtPayload(reqUser: ReqUser): JwtPayload {
+    return {
+      sub: reqUser.id,
+      username: reqUser.email,
+    };
+  }
+
+  jwtPayloadToReqUser(payload: JwtPayload): ReqUser {
+    return {
+      id: payload.sub,
+      email: payload.username,
     };
   }
 }
