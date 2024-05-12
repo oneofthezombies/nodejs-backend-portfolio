@@ -60,6 +60,7 @@
       "dist",
       "node_modules"
     ],
-    "ext": "ts"
+    "ext": "ts",
+    "delay": "500"
   }
 }
