@@ -13,7 +13,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validate(data: {
+  async validateEmailPassword(data: {
     email: string;
     password: string;
   }): Promise<UserPayload | null> {
