@@ -66,5 +66,9 @@
     ],
     "ext": "ts",
     "delay": "500"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ]
 }
