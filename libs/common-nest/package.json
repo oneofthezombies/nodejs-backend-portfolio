@@ -1,12 +1,8 @@
 {
   "name": "common-nest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "private": true,
+  "description": "Common module for Nest.js based applications",
+  "type": "module",
+  "main": "../../dist/libs/common-nest/src/index.js",
+  "scripts": {}
 }

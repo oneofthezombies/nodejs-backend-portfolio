@@ -1,19 +1,31 @@
 {
   "name": "nodejs-backend-portfolio",
   "version": "0.0.0",
-  "description": "Node.js backend portfolio",
-  "author": "oneofthezombies",
   "private": true,
+  "description": "Node.js backend portfolio",
   "license": "MIT",
+  "author": "oneofthezombies",
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
   "scripts": {
-    "broker:watch": "nodemon --watch apps/broker/src --watch libs/auth/src --exec \"npx concurrently --kill-others-on-fail npm:broker:start:dev npm:broker:check:type npm:broker:check:lint npm:broker:check:format\"",
-    "broker:check:type": "tsc --project apps/broker/tsconfig.json",
-    "broker:check:lint": "eslint apps/broker/src",
-    "broker:check:format": "prettier --check \"apps/broker/src/**/*.ts\" \"libs/auth/src/**/*.ts\"",
     "broker:build": "swc apps/broker/src libs/auth/src --out-dir=dist/apps/broker --delete-dir-on-start",
+    "broker:check:format": "prettier --check \"apps/broker/src/**/*.ts\" \"libs/auth/src/**/*.ts\"",
+    "broker:check:lint": "eslint apps/broker/src",
+    "broker:check:type": "tsc --project apps/broker/tsconfig.json",
     "broker:start:dev": "SWCRC=true node --import @swc-node/register/esm-register --enable-source-maps apps/broker/src/main.ts",
-    "broker:start:prod": "node --enable-source-maps dist/apps/broker/apps/broker/src/main.js"
+    "broker:start:prod": "node --enable-source-maps dist/apps/broker/apps/broker/src/main.js",
+    "broker:watch": "nodemon --watch apps/broker/src --watch libs/auth/src --exec \"npx concurrently --kill-others-on-fail npm:broker:start:dev npm:broker:check:type npm:broker:check:lint npm:broker:check:format\""
+  },
+  "nodemonConfig": {
+    "delay": "500",
+    "ext": "ts",
+    "ignore": [
+      "dist",
+      "node_modules"
+    ]
   },
   "dependencies": {
     "@nestjs/common": "10.3.8",
@@ -56,19 +68,8 @@
     "nodemon": "3.1.0",
     "prettier": "3.2.5",
     "prisma": "5.13.0",
+    "sort-package-json": "2.10.0",
     "supertest": "7.0.0",
     "typescript": "5.4.5"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "dist",
-      "node_modules"
-    ],
-    "ext": "ts",
-    "delay": "500"
-  },
-  "workspaces": [
-    "apps/*",
-    "libs/*"
-  ]
+  }
 }
