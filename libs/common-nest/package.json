@@ -3,9 +3,11 @@
   "private": true,
   "description": "Common module for Nest.js applications",
   "scripts": {
-    "build": "swc src --out-dir=dist --config-file=../../.swcrc",
+    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
+    "postinstall": "npm run link:swcrc",
+    "build": "swc src --out-dir=dist",
     "lint": "eslint src",
-    "format": "cd ../../ && prettier --check libs/common-nest/src"
+    "format": "prettier --check src"
   },
   "main": "dist/src/index.js"
 }

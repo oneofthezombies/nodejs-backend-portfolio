@@ -3,13 +3,16 @@
   "private": true,
   "description": "Broker for agent control",
   "scripts": {
-    "build": "cd ../../ && swc apps/broker/src --out-dir=dist",
-    "typecheck": "tsc",
-    "start:dev": "cd ../../ && SWCRC=true node -r @swc-node/register --enable-source-maps apps/broker/src/main.ts",
-    "start:prod": "cd ../../ && node --enable-source-maps dist/apps/broker/src/main.js",
+    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
+    "link:nodemon": "node ../../scripts/link.mjs ../../nodemon.json nodemon.json",
+    "postinstall": "npm run link:swcrc && npm run link:nodemon",
+    "build": "swc src --out-dir=dist",
+    "typecheck": "tsc --noEmit",
+    "start:dev": "SWCRC=true node -r @swc-node/register --enable-source-maps src/main.ts",
+    "start:prod": "node --enable-source-maps dist/src/main.js",
     "lint": "eslint src",
     "format": "cd ../../ && prettier --check apps/broker/src",
-    "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\" --config ../../nodemon.json"
+    "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\""
   },
   "dependencies": {
     "@libs/common-nest": "*",

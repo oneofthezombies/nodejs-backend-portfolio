@@ -1,9 +1,11 @@
 {
   "name": "@libs/auth-nest",
   "private": true,
-  "description": "Auth module for the Nest.js application",
+  "description": "Auth module for Nest.js application",
   "scripts": {
-    "build": "swc src --out-dir=dist --config-file=../../.swcrc",
+    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
+    "postinstall": "npm run link:swcrc",
+    "build": "swc src --out-dir=dist",
     "lint": "eslint src",
     "format": "prettier --check src"
   },
