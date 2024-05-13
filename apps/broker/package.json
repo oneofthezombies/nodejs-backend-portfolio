@@ -7,11 +7,12 @@
     "link:nodemon": "node ../../scripts/link.mjs ../../nodemon.json nodemon.json",
     "postinstall": "npm run link:swcrc && npm run link:nodemon",
     "build": "swc src --out-dir=dist",
+    "build:rec": "nx build broker",
     "typecheck": "tsc --noEmit",
     "start:dev": "SWCRC=true node -r @swc-node/register --enable-source-maps src/main.ts",
     "start:prod": "node --enable-source-maps dist/src/main.js",
     "lint": "eslint src",
-    "format": "cd ../../ && prettier --check apps/broker/src",
+    "format": "prettier --check src",
     "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\""
   },
   "dependencies": {
