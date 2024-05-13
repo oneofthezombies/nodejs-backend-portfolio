@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { Request } from 'express';
-import { ReqUser } from './auth.types.js';
+import { ReqUser } from './auth.types';
 
 export const ParseReqUser = createParamDecorator(
   (_data: unknown, ctx: ExecutionContext): ReqUser => {

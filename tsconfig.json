@@ -2,8 +2,8 @@
   "compilerOptions": {
     "module": "node16",
     "moduleResolution": "node16",
-    "declaration": true,
-    "noEmit": false,
+    "declaration": false,
+    "noEmit": true,
     "noEmitHelpers": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
@@ -29,7 +29,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@libs/auth/*": ["libs/auth/src/*"]
+      "@libs/common-nest": ["libs/common-nest/src/index.ts"],
+      "@libs/auth": ["libs/auth/src/index.ts"]
     }
   }
 }

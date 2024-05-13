@@ -1,13 +1,10 @@
-import { Controller, Get, Inject, UseGuards } from '@nestjs/common';
-import { BrokerService } from './broker.service.js';
-import { BasicAuthGuard } from '@libs/auth/basic/basic-auth.guard.js';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { BrokerService } from './broker.service';
+import { BasicAuthGuard } from '@libs/auth';
 
 @Controller()
 export class BrokerController {
-  constructor(
-    @Inject(BrokerService)
-    private readonly brokerService: BrokerService,
-  ) {}
+  constructor(private readonly brokerService: BrokerService) {}
 
   @UseGuards(BasicAuthGuard)
   @Get()

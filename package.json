@@ -1,21 +1,19 @@
 {
   "name": "nodejs-backend-portfolio",
-  "version": "0.0.0",
   "private": true,
   "description": "Node.js backend portfolio",
   "license": "MIT",
   "author": "oneofthezombies",
-  "type": "module",
+  "type": "commonjs",
   "workspaces": [
-    "apps/*",
-    "libs/*"
+    "apps/*"
   ],
   "scripts": {
-    "broker:build": "swc apps/broker/src libs/auth/src --out-dir=dist/apps/broker --delete-dir-on-start",
+    "broker:build": "swc apps/broker/src libs/common-nest/src libs/auth/src --out-dir=dist/apps/broker --delete-dir-on-start",
     "broker:check:format": "prettier --check \"apps/broker/src/**/*.ts\" \"libs/auth/src/**/*.ts\"",
     "broker:check:lint": "eslint apps/broker/src",
     "broker:check:type": "tsc --project apps/broker/tsconfig.json",
-    "broker:start:dev": "SWCRC=true node --import @swc-node/register/esm-register --enable-source-maps apps/broker/src/main.ts",
+    "broker:start:dev": "SWCRC=true node -r @swc-node/register --enable-source-maps apps/broker/src/main.ts",
     "broker:start:prod": "node --enable-source-maps dist/apps/broker/apps/broker/src/main.js",
     "broker:watch": "nodemon --watch apps/broker/src --watch libs/auth/src --exec \"npx concurrently --kill-others-on-fail npm:broker:start:dev npm:broker:check:type npm:broker:check:lint npm:broker:check:format\""
   },
@@ -62,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
     "concurrently": "8.2.2",
+    "dotenv": "16.4.5",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.1.3",

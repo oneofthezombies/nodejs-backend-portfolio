@@ -1,15 +1,12 @@
-import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
-import { AuthService } from './auth.service.js';
-import { BasicAuthGuard } from './basic/basic-auth.guard.js';
-import { RegisterDto, ReqUser } from './auth.types.js';
-import { ParseReqUser } from './auth.decorators.js';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { BasicAuthGuard } from './basic/basic-auth.guard';
+import { RegisterDto, ReqUser } from './auth.types';
+import { ParseReqUser } from './auth.decorators';
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    @Inject(AuthService)
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('register')
   async register(@Body() dto: RegisterDto) {

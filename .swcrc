@@ -12,12 +12,13 @@
       "decoratorMetadata": true
     },
     "paths": {
-      "@libs/auth/*": ["libs/auth/src/*"]
+      "@libs/auth": ["libs/auth/src/index.ts"],
+      "@libs/common-nest": ["libs/common-nest/src/index.ts"]
     },
     "baseUrl": "./"
   },
   "module": {
-    "type": "es6"
+    "type": "commonjs"
   },
   "sourceMaps": true
 }
