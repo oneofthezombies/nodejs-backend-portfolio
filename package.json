@@ -8,15 +8,7 @@
   "workspaces": [
     "apps/*"
   ],
-  "scripts": {
-    "broker:build": "swc apps/broker/src libs/common-nest/src libs/auth/src --out-dir=dist/apps/broker --delete-dir-on-start",
-    "broker:check:format": "prettier --check \"apps/broker/src/**/*.ts\" \"libs/auth/src/**/*.ts\"",
-    "broker:check:lint": "eslint apps/broker/src",
-    "broker:check:type": "tsc --project apps/broker/tsconfig.json",
-    "broker:start:dev": "SWCRC=true node -r @swc-node/register --enable-source-maps apps/broker/src/main.ts",
-    "broker:start:prod": "node --enable-source-maps dist/apps/broker/apps/broker/src/main.js",
-    "broker:watch": "nodemon --watch apps/broker/src --watch libs/auth/src --exec \"npx concurrently --kill-others-on-fail npm:broker:start:dev npm:broker:check:type npm:broker:check:lint npm:broker:check:format\""
-  },
+  "scripts": {},
   "nodemonConfig": {
     "delay": "500",
     "ext": "ts",

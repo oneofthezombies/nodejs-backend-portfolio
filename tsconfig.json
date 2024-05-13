@@ -30,7 +30,7 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@libs/common-nest": ["libs/common-nest/src/index.ts"],
-      "@libs/auth": ["libs/auth/src/index.ts"]
+      "@libs/auth-nest": ["libs/auth-nest/src/index.ts"]
     }
   }
 }

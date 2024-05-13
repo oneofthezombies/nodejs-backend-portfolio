@@ -3,8 +3,8 @@
   "private": true,
   "description": "Common module for Nest.js applications",
   "scripts": {
-    "build": "swc src --out-dir=../../dist/libs/common-nest --config-file=../../.swcrc",
-    "lint": "",
-    "format": ""
+    "build": "cd ../../ && swc libs/common-nest/src --out-dir=dist",
+    "lint": "eslint src",
+    "format": "cd ../../ && prettier --check libs/common-nest/src"
   }
 }

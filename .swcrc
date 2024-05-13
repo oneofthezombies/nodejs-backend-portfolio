@@ -11,11 +11,11 @@
     "transform": {
       "decoratorMetadata": true
     },
+    "baseUrl": "./",
     "paths": {
-      "@libs/auth-nest": ["libs/auth-nest/src/index.ts"],
-      "@libs/common-nest": ["libs/common-nest/src/index.ts"]
-    },
-    "baseUrl": "./"
+      "@libs/common-nest": ["libs/common-nest/src/index.ts"],
+      "@libs/auth-nest": ["libs/auth-nest/src/index.ts"]
+    }
   },
   "module": {
     "type": "commonjs"

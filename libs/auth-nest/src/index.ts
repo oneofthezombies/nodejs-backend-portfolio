@@ -1,2 +1,2 @@
-export * from './auth.module.js';
-export * from './basic/basic-auth.guard.js';
+export * from './auth.module';
+export * from './basic/basic-auth.guard';
