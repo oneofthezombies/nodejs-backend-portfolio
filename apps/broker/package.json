@@ -9,6 +9,6 @@
     "start:prod": "cd ../../ && node --enable-source-maps dist/apps/broker/src/main.js",
     "lint": "eslint src",
     "format": "cd ../../ && prettier --check apps/broker/src",
-    "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\""
+    "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\" --config ../../nodemon.json"
   }
 }
