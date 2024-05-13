@@ -10,12 +10,7 @@
     "target": "es2022",
     "transform": {
       "decoratorMetadata": true
-    },
-    "baseUrl": "./"
-    // "paths": {
-    //   "@libs/common-nest": ["libs/common-nest/src/index.ts"],
-    //   "@libs/auth-nest": ["libs/auth-nest/src/index.ts"]
-    // }
+    }
   },
   "module": {
     "type": "commonjs"
