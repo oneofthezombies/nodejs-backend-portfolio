@@ -3,20 +3,20 @@
   "private": true,
   "description": "Broker for agent control",
   "scripts": {
-    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
-    "link:nodemon": "node ../../scripts/link.mjs ../../nodemon.json nodemon.json",
-    "postinstall": "npm run link:swcrc && npm run link:nodemon",
     "build": "swc src --out-dir=dist",
     "build:rec": "nx build broker",
-    "typecheck": "tsc --noEmit",
+    "format": "prettier --check src",
+    "postinstall": "npm run link:swcrc && npm run link:nodemon",
+    "link:nodemon": "node ../../scripts/link.mjs ../../nodemon.json nodemon.json",
+    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
+    "lint": "eslint src",
     "start:dev": "SWCRC=true node -r @swc-node/register --enable-source-maps src/main.ts",
     "start:prod": "node --enable-source-maps dist/src/main.js",
-    "lint": "eslint src",
-    "format": "prettier --check src",
+    "typecheck": "tsc --noEmit",
     "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\""
   },
   "dependencies": {
-    "@libs/common-nest": "*",
-    "@libs/auth-nest": "*"
+    "@libs/auth-nest": "*",
+    "@libs/common-nest": "*"
   }
 }

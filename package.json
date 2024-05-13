@@ -11,8 +11,9 @@
   ],
   "scripts": {
     "build": "nx run-many -t build",
-    "lint": "nx run-many -t lint",
     "format": "nx run-many -t format",
+    "lint": "nx run-many -t lint",
+    "sort-package-json": "sort-package-json libs/*/package.json apps/*/package.json ./package.json",
     "typecheck": "nx run-many -t typecheck"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "@nestjs/cli": "10.3.2",
     "@nestjs/schematics": "10.1.1",
     "@nestjs/testing": "10.3.8",
+    "@nx/eslint": "19.0.2",
     "@swc-node/register": "1.9.1",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.5.5",
@@ -60,7 +62,6 @@
     "prisma": "5.13.0",
     "sort-package-json": "2.10.0",
     "supertest": "7.0.0",
-    "typescript": "5.4.5",
-    "@nx/eslint": "19.0.2"
+    "typescript": "5.4.5"
   }
 }

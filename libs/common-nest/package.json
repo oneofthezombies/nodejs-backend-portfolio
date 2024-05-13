@@ -2,12 +2,12 @@
   "name": "@libs/common-nest",
   "private": true,
   "description": "Common module for Nest.js applications",
+  "main": "dist/src/index.js",
   "scripts": {
-    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
-    "postinstall": "npm run link:swcrc",
     "build": "swc src --out-dir=dist",
-    "lint": "eslint src",
-    "format": "prettier --check src"
-  },
-  "main": "dist/src/index.js"
+    "format": "prettier --check src",
+    "postinstall": "npm run link:swcrc",
+    "link:swcrc": "node ../../scripts/link.mjs ../../.swcrc .swcrc",
+    "lint": "eslint src"
+  }
 }
