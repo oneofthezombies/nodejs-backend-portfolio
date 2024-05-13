@@ -10,13 +10,14 @@
     "apps/*"
   ],
   "scripts": {
+    "prepare": "husky",
     "build": "nx run-many -t build",
     "format": "nx run-many -t format",
     "lint": "nx run-many -t lint",
-    "pre-push": "concurrently \"npm run sort-package-json\" \"nx run-many -t format lint typecheck\"",
-    "prepare": "husky",
+    "typecheck": "nx run-many -t typecheck",
+    "format:lint:typecheck": "nx run-many -t format lint typecheck",
     "sort-package-json": "sort-package-json libs/*/package.json apps/*/package.json ./package.json",
-    "typecheck": "nx run-many -t typecheck"
+    "pre-push": "concurrently npm:sort-package-json npm:format:lint:typecheck"
   },
   "dependencies": {
     "@nestjs/common": "10.3.8",
