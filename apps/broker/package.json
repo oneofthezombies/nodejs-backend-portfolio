@@ -10,5 +10,9 @@
     "lint": "eslint src",
     "format": "cd ../../ && prettier --check apps/broker/src",
     "watch": "nodemon --watch src --exec \"concurrently npm:start:dev npm:typecheck\" --config ../../nodemon.json"
+  },
+  "dependencies": {
+    "@libs/common-nest": "*",
+    "@libs/auth-nest": "*"
   }
 }

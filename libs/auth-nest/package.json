@@ -1,10 +1,11 @@
 {
-  "name": "auth-nest",
+  "name": "@libs/auth-nest",
   "private": true,
   "description": "Auth module for the Nest.js application",
   "scripts": {
-    "build": "cd ../../ && swc libs/auth-nest/src --out-dir=dist",
+    "build": "swc src --out-dir=dist --config-file=../../.swcrc",
     "lint": "eslint src",
-    "format": "cd ../../ && prettier --check libs/auth-nest/src"
-  }
+    "format": "prettier --check src"
+  },
+  "main": "dist/src/index.js"
 }

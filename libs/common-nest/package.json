@@ -1,10 +1,11 @@
 {
-  "name": "common-nest",
+  "name": "@libs/common-nest",
   "private": true,
   "description": "Common module for Nest.js applications",
   "scripts": {
-    "build": "cd ../../ && swc libs/common-nest/src --out-dir=dist",
+    "build": "swc src --out-dir=dist --config-file=../../.swcrc",
     "lint": "eslint src",
     "format": "cd ../../ && prettier --check libs/common-nest/src"
-  }
+  },
+  "main": "dist/src/index.js"
 }

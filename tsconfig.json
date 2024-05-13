@@ -27,10 +27,10 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@libs/common-nest": ["libs/common-nest/src/index.ts"],
-      "@libs/auth-nest": ["libs/auth-nest/src/index.ts"]
-    }
+    "noFallthroughCasesInSwitch": true
+    // "paths": {
+    //   "@libs/common-nest": ["libs/common-nest/src/index.ts"],
+    //   "@libs/auth-nest": ["libs/auth-nest/src/index.ts"]
+    // }
   }
 }
