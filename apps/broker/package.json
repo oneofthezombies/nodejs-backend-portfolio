@@ -3,10 +3,10 @@
   "private": true,
   "description": "Broker for agent control",
   "scripts": {
-    "build": "swc src --out-dir=../../dist/broker --config-file=../../.swcrc",
+    "build": "swc src --out-dir=../../dist/apps/broker --config-file=../../.swcrc",
     "typecheck": "tsc",
     "start:dev": "SWCRC=true node -r @swc-node/register --enable-source-maps src/main.ts",
-    "start:prod": "node --enable-source-maps ../../dist/broker/apps/broker/src/main.js",
+    "start:prod": "node --enable-source-maps ../../dist/apps/broker/src/main.js",
     "lint": "",
     "format": ""
   }

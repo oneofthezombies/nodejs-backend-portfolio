@@ -1,0 +1,10 @@
+{
+  "name": "auth-nest",
+  "private": true,
+  "description": "Auth module for the NestJS application",
+  "scripts": {
+    "build": "swc src --out-dir=../../dist/libs/auth-nest --config-file=../../.swcrc",
+    "lint": "",
+    "format": ""
+  }
+}

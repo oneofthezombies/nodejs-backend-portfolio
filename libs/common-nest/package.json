@@ -1,0 +1,10 @@
+{
+  "name": "common-nest",
+  "private": true,
+  "description": "Common module for Nest.js applications",
+  "scripts": {
+    "build": "swc src --out-dir=../../dist/libs/common-nest --config-file=../../.swcrc",
+    "lint": "",
+    "format": ""
+  }
+}
