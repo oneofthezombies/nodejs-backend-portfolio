@@ -4,4 +4,6 @@ const Env = z.object({
   JWT_KEY: z.string().min(1),
 });
 
-export const env = Env.parse(process.env);
+export type Env = z.infer<typeof Env>;
+
+export const env: Env = Env.parse(process.env);
