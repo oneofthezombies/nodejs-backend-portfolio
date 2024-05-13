@@ -5,7 +5,7 @@
     "declaration": true,
     "noEmit": false,
     "emitDeclarationOnly": false,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false,
     "noEmitHelpers": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
