@@ -6,7 +6,11 @@
       "decorators": true,
       "dynamicImport": true
     },
+    "keepClassNames": true,
     "target": "es2022",
+    "transform": {
+      "decoratorMetadata": true
+    },
     "paths": {
       "@libs/auth/*": ["libs/auth/src/*"]
     },

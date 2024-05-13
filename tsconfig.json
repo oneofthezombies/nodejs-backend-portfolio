@@ -2,8 +2,8 @@
   "compilerOptions": {
     "module": "node16",
     "moduleResolution": "node16",
-    "declaration": false,
-    "noEmit": true,
+    "declaration": true,
+    "noEmit": false,
     "noEmitHelpers": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
