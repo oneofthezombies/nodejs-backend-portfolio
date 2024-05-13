@@ -9,7 +9,12 @@
     "libs/*",
     "apps/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many -t build",
+    "lint": "nx run-many -t lint",
+    "format": "nx run-many -t format",
+    "typecheck": "nx run-many -t typecheck"
+  },
   "dependencies": {
     "@nestjs/common": "10.3.8",
     "@nestjs/core": "10.3.8",
